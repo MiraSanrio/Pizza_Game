@@ -1,0 +1,289 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff5e4;
+    font-family: 'Coiny';
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+/* Top Pink Header Bar Container */
+.top-banner {
+    width: 100%;
+    height: 50px;
+    background-color: #ffa3d1;
+    color: #fff5e4;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Hides text scrolling past the screen edges */
+    position: relative;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px #8b635199; /* Soft brown drop shadow */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Track holding both copies of the text */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-marquee 16s linear infinite; /* Adjust '12s' to change speed */
+}
+
+/* Individual text groups */
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Spacing between phrases */
+    padding-right: 25px;
+}
+
+/* Continuous Loop Animation */
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%); /* Moves exactly half-width for a 100% seamless jump */
+    }
+}
+
+/* Optional: Pause scrolling when hovering over header */
+.top-banner:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main Kitchen Layout Wrapper */
+.kitchen-wrapper {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kitchen-container {
+    width: 90%;
+    max-width: 1100px;
+    height: 80vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+/* --- PIZZA STAGING STACK (Z-INDEX LAYERING) --- */
+.pizza-stage {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Base style for all stacked pizza elements */
+.pizza-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Z-Index Hierarchy */
+#plate-layer {
+    z-index: 1;
+    width: 115%; /* Plate slightly larger than pizza */
+    height: 115%;
+}
+
+#pizza-base {
+    z-index: 2;
+}
+
+#topping-mushroom,
+#topping-parsley,
+#topping-pepperoni {
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Visibility Toggle Classes */
+.plate-hidden,
+.topping-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --- RIGHT SIDE CONTROLS & SELECTION DRAWER --- */
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Glossy Pink Buttons matching your design */
+.nav-btn {
+    background: linear-gradient(180deg, #ff5bae 0%, #ff0081 100%);
+    color: #ffffff;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 14px 45px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 
+        0 6px 12px rgba(255, 0, 129, 0.3),
+        inset 0 3px 5px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    width: 220px;
+    text-align: center;
+}
+
+.nav-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 16px rgba(255, 0, 129, 0.4);
+}
+
+.nav-btn:active {
+    transform: scale(0.98);
+}
+
+/* Sliding Menu Card Drawer */
+.selector-drawer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.selector-drawer.drawer-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
+}
+
+
+
+/* White Card Drawer Window */
+.drawer-items {
+    background: #ffffff;
+    border: 2px solid #ffa3d1;
+    border-radius: 16px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    min-width: 200px;
+    min-height: 400px;
+    align-items: center;
+}
+
+.menu-item-icon {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.menu-item-icon:hover {
+    transform: scale(1.15);
+}
+
+/* --- MUSIC CAT ICON (Bottom Right) --- */
+.music-cat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s ease;
+}
+
+.music-cat-container:hover {
+    transform: scale(1.1);
+}
+
+.cat-icon {
+    width: 75px;
+    height: auto;
+}

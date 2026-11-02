@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Make Pizza!</title>
+    
+    <!-- Link to the CSS inside the start folder -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts: Caveat & Fredoka -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Coiny -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+<!-- Pink Infinite Marquee Header Banner -->
+<header class="top-banner">
+    <div class="marquee-track">
+        <!-- Group 1 -->
+        <div class="marquee-content">
+            <span>Mas mabilis pang mag-melt ang cheese ng pizza kaysa mag-build ng project sa VS Code</span>
+            <span> </span>
+            <span>Ctrl + X your academic stress, Ctrl + V more cheese</span>
+            <span> </span>
+            <span>In Crust We Trust </span>
+        </div>
+
+
+        <!-- Group 2 (Exact Duplicate for Seamless Loop) -->
+        <div class="marquee-content" aria-hidden="true">
+            <span>Mas mabilis pang mag-melt ang cheese ng pizza kaysa mag-build ng project sa VS Code</span>
+            <span> </span>
+            <span>Ctrl + X your academic stress, Ctrl + V more cheese</span>
+            <span> </span>
+            <span>In Crust We Trust </span>
+        </div>
+    </div>
+</header>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="kitchen-wrapper">
+        <main class="kitchen-container">
+
+            <!-- PIZZA STAGING AREA (Layered Stacking) -->
+            <div class="pizza-stage">
+                <!-- Layer 1: Selected Plate (Behind Pizza) -->
+                <img id="plate-layer" src="./Images/plate1.png" alt="Selected Plate" class="pizza-layer plate-hidden">
+
+                <!-- Layer 2: Pizza Base / Sauce -->
+                <img id="pizza-base" src="./Images/sauce-default.png" alt="Pizza Base" class="pizza-layer">
+
+                <!-- Layer 3: Topping Overlays (On top of Pizza) -->
+                <img id="topping-mushroom" src="./Images/topping-mushroom.png" alt="Mushroom Toppings" class="pizza-layer topping-hidden">
+                <img id="topping-parsley" src="./Images/topping-parsley.png" alt="Parsley Toppings" class="pizza-layer topping-hidden">
+                <img id="topping-pepperoni" src="./Images/topping-peperoni.png" alt="Pepperoni Toppings" class="pizza-layer topping-hidden">
+            </div>
+
+            <!-- RIGHT ACTION CONTROLS & MENU PANEL -->
+            <div class="controls-container">
+
+                <!-- Main Action Buttons -->
+                <div class="menu-buttons">
+                    <button class="nav-btn" onclick="openMenu('plate')">PLATE</button>
+                    <button class="nav-btn" onclick="openMenu('sauce')">SAUCE</button>
+                    <button class="nav-btn" onclick="openMenu('toppings')">TOPPINGS</button>
+                </div>
+
+                <!-- Sliding Selector Drawer (Hidden initially) -->
+                <div id="selector-drawer" class="selector-drawer drawer-hidden">
+                    
+                    <div id="drawer-items" class="drawer-items">
+                        <!-- Dynamic items get loaded here via JavaScript -->
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MUSIC CAT TOGGLE (Bottom Right) -->
+    <div class="music-cat-container" onclick="toggleMusic()">
+    <img src="./Images/music-icon.png" alt="Music Cat" class="cat-icon">
+</div>
+<!-- Background Audio (.wav) -->
+<audio id="kitchen-music" src="./Images/Song.wav" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
